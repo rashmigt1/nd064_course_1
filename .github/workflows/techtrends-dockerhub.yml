@@ -2,15 +2,14 @@
 
 # This is a basic workflow to help you get started with Actions
 
-name: Docker Build and Push
+name: TechTrends - Package with Docker
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ main ]
+  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,7 +40,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Dockerfile
+          file: ./project/techtrends/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: pixelpotato/python-helloworld:latest
+          tags: rashmigt/techtrends:latest
